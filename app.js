@@ -14,6 +14,18 @@ angular
   "$stateParams",
   DoctorShowControllerFunction
 ])
+.factory( "DoctorFactory", [
+      "$resource",
+      DoctorFactoryFunction
+    ]);
+
+function DoctorIndexControllerFunction(){
+
+}
+
+function DoctorShowControllerFunction(){
+
+}
 
 function RouterFunction($stateProvider){
   $stateProvider
@@ -29,4 +41,8 @@ function RouterFunction($stateProvider){
       controller: "DoctorShowController",
       controllerAs: "vm"
     })
+}
+
+function DoctorFactoryFunction( $resource ){
+  return $resource( "http://localhost:3000/doctors/:id" );
 }

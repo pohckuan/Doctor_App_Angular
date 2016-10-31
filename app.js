@@ -10,22 +10,22 @@ angular
 .controller("DoctorIndexController", [
   DoctorIndexControllerFunction
 ])
-.controller("DoctorShowController", [
-  "$stateParams",
-  DoctorShowControllerFunction
-])
+// .controller("DoctorShowController", [
+//   "$stateParams",
+//   DoctorShowControllerFunction
+// ])
 .factory( "DoctorFactory", [
       "$resource",
       DoctorFactoryFunction
     ]);
 
-function DoctorIndexControllerFunction(){
-
+function DoctorIndexControllerFunction(DoctorFactory){
+this.doctors = DoctorFactory.query()
 }
 
-function DoctorShowControllerFunction(){
-
-}
+// function DoctorShowControllerFunction(){
+//
+// }
 
 function RouterFunction($stateProvider){
   $stateProvider
@@ -35,14 +35,14 @@ function RouterFunction($stateProvider){
       controller: "DoctorIndexController",
       controllerAs: "vm"
     })
-    .state("doctorShow", {
-      url: "/doctors/:id",
-      templateUrl: "js/ng-views/show.html",
-      controller: "DoctorShowController",
-      controllerAs: "vm"
-    })
+    // .state("doctorShow", {
+    //   url: "/doctors/:id",
+    //   templateUrl: "js/ng-views/show.html",
+    //   controller: "DoctorShowController",
+    //   controllerAs: "vm"
+    // })
 }
 
 function DoctorFactoryFunction( $resource ){
-  return $resource( "http://localhost:3000/doctors/:id" );
+  return $resource( "http://localhost:3000/doctors" );
 }

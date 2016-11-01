@@ -19,8 +19,13 @@ angular
       DoctorFactoryFunction
     ]);
 
+
 function DoctorIndexControllerFunction(DoctorFactory){
-this.doctors = DoctorFactory.query()
+// this.doctors = DoctorFactory.query()
+$('.button').on('click',()=>{
+  var keyword = $('#doctor-search').val()
+  console.log(keyword);
+})
 }
 
 // function DoctorShowControllerFunction(){

@@ -26,12 +26,21 @@ angular
 
 function DoctorIndexControllerFunction(DoctorFactory){
 this.doctors = DoctorFactory.query()
+<<<<<<< HEAD
 this.searchDoctor = ""
 this.searchSpecialty=""
 $('.button').on('click',()=>{
   var keyword = $('#doctor-search').val()
   console.log(this.doctors)
 })
+
+// this.searchDoctor = ""
+// this.searchSpecialty=""
+// $('.button').on('click',()=>{
+//   var keyword = $('#doctor-search').val()
+//   console.log(this.doctors)
+//   // keyword.get
+// })
 }
 
 function DoctorShowControllerFunction(DoctorFactory, $stateParams){

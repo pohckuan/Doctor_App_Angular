@@ -38,7 +38,6 @@ $('.button').on('click',()=>{
 // $('.button').on('click',()=>{
 //   var keyword = $('#doctor-search').val()
 //   console.log(this.doctors)
-//   // keyword.get
 // })
 }
 

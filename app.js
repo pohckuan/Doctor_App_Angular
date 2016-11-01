@@ -23,10 +23,11 @@ angular
 
 function DoctorIndexControllerFunction(DoctorFactory){
 this.doctors = DoctorFactory.query()
+this.searchDoctor = ""
+this.searchSpecialty=""
 $('.button').on('click',()=>{
   var keyword = $('#doctor-search').val()
-  console.log(keyword)
-  return keyword
+  console.log(this.doctors)
   // keyword.get
 })
 }
@@ -52,7 +53,7 @@ function RouterFunction($stateProvider){
 }
 
 function FactoryFunction( $resource ){
-  return $resource( "http://localhost:3000/doctors/:id", {}, {
+  return $resource( "http://localhost:3000/doctors", {}, {
         update: { method: "PUT" }
     });
   }

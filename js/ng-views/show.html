@@ -1,7 +1,14 @@
-<h2>Single Doctor View</h2>
-
-<p>{{vm.doctor.name}}</p>
-<p>{{vm.doctor.education}}</p>
-<p>{{vm.doctor.practice}}</p>
-<p>{{vm.doctor.specialty}}
 <img data-ng-src="{{vm.doctor.img_url}}">
+<p>NAME: {{vm.doctor.name}}</p>
+<p>SPECIALTY: {{vm.doctor.specialty}}</p>
+<p>PRACTICE: {{vm.doctor.practice}}</p>
+<p>EDUCATION: {{vm.doctor.education}}</p>
+
+<h2>Reviews</h2>
+
+
+<form data-ng-submit="vm.create()">
+  <input placeholder="Name" data-ng-model="">
+  <input placeholder="Body" data-ng-model="">
+  <button type="submit">Create Review</button>
+</form>

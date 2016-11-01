@@ -22,9 +22,7 @@ angular
 .factory( "DoctorFactory", [
       "$resource",
     FactoryFunction
-    ]);
-
-]);
+])
 
 function DoctorIndexControllerFunction(DoctorFactory){
 this.doctors = DoctorFactory.query()
@@ -69,7 +67,7 @@ function RouterFunction($stateProvider){
 }
 
 function FactoryFunction( $resource ){
-  return $resource( "http://localhost:3000/doctors", {}, {
+  return $resource( "http://localhost:3000/doctors/:id", {}, {
         update: { method: "PUT" }
     });
   }

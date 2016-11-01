@@ -15,11 +15,13 @@ angular
   "$stateParams",
   DoctorShowControllerFunction
 ])
+// .controller("ReviewShowController", [
+//   ReviewShowControllerFunction
+// ])
 .factory( "DoctorFactory", [
       "$resource",
       DoctorFactoryFunction
 ]);
-
 
 function DoctorIndexControllerFunction(DoctorFactory){
 // this.doctors = DoctorFactory.query()
@@ -33,6 +35,10 @@ function DoctorShowControllerFunction(DoctorFactory, $stateParams){
   this.doctor = DoctorFactory.get({id: $stateParams.id})
 }
 
+// function ReviewShowController(){
+//
+// }
+
 function RouterFunction($stateProvider){
   $stateProvider
     .state("doctorIndex", {
@@ -45,6 +51,12 @@ function RouterFunction($stateProvider){
       url: "/doctors/:id",
       templateUrl: "js/ng-views/show.html",
       controller: "DoctorShowController",
+      controllerAs: "vm"
+    })
+    .state("reviewShow", {
+      url: "/doctors/:id",
+      templateUrl: "js/ng-views/show.html",
+      controller: "ReviewShowController",
       controllerAs: "vm"
     })
 }

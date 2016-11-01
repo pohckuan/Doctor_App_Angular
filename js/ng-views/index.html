@@ -1,6 +1,3 @@
-
-
-
 <h1>Asceso</h1>
 
 <div class="find">
@@ -10,13 +7,7 @@
     <input type="search" placeholder="Search for a doctor..." id="doctor-search">
     <button type = "button" class="button">Submit</button>
   </form>
-
   <select id="doctor-select">
-    <!-- <option value="">...</option> -->
+    <option value="">Select a doctor</option>
+      <option ng-repeat="doctor in vm.doctors">{{doctor.name}},{{doctor.specialty}}</option>
   </select>
-
-
-
-<!-- <div data-ng-repeat="doctor in vm.doctors">
-   <p><a data-ui-sref="doctorShow({id: doctor.id})">{{doctor.name}}</a></p>
-</div> -->

@@ -8,6 +8,7 @@ angular
   RouterFunction
 ])
 .controller("DoctorIndexController", [
+  "DoctorFactory",
   DoctorIndexControllerFunction
 ])
 // .controller("DoctorShowController", [
@@ -16,15 +17,17 @@ angular
 // ])
 .factory( "DoctorFactory", [
       "$resource",
-      DoctorFactoryFunction
+    FactoryFunction
     ]);
 
 
 function DoctorIndexControllerFunction(DoctorFactory){
-// this.doctors = DoctorFactory.query()
+this.doctors = DoctorFactory.query()
 $('.button').on('click',()=>{
   var keyword = $('#doctor-search').val()
-  console.log(keyword);
+  console.log(keyword)
+  return keyword
+  // keyword.get
 })
 }
 
@@ -48,6 +51,8 @@ function RouterFunction($stateProvider){
     // })
 }
 
-function DoctorFactoryFunction( $resource ){
-  return $resource( "http://localhost:3000/doctors" );
-}
+function FactoryFunction( $resource ){
+  return $resource( "http://localhost:3000/doctors/:id", {}, {
+        update: { method: "PUT" }
+    });
+  }

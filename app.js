@@ -18,7 +18,7 @@ angular
 .factory( "DoctorFactory", [
       "$resource",
       DoctorFactoryFunction
-    ]);
+]);
 
 function DoctorIndexControllerFunction(DoctorFactory){
 this.doctors = DoctorFactory.query()

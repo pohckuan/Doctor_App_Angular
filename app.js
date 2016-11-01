@@ -11,15 +11,20 @@ angular
   "DoctorFactory",
   DoctorIndexControllerFunction
 ])
-// .controller("DoctorShowController", [
-//   "$stateParams",
-//   DoctorShowControllerFunction
+.controller("DoctorShowController", [
+  "DoctorFactory",
+  "$stateParams",
+  DoctorShowControllerFunction
+])
+// .controller("ReviewShowController", [
+//   ReviewShowControllerFunction
 // ])
 .factory( "DoctorFactory", [
       "$resource",
     FactoryFunction
     ]);
 
+]);
 
 function DoctorIndexControllerFunction(DoctorFactory){
 this.doctors = DoctorFactory.query()
@@ -30,7 +35,11 @@ $('.button').on('click',()=>{
 })
 }
 
-// function DoctorShowControllerFunction(){
+function DoctorShowControllerFunction(DoctorFactory, $stateParams){
+  this.doctor = DoctorFactory.get({id: $stateParams.id})
+}
+
+// function ReviewShowController(){
 //
 // }
 
@@ -42,12 +51,18 @@ function RouterFunction($stateProvider){
       controller: "DoctorIndexController",
       controllerAs: "vm"
     })
-    // .state("doctorShow", {
-    //   url: "/doctors/:id",
-    //   templateUrl: "js/ng-views/show.html",
-    //   controller: "DoctorShowController",
-    //   controllerAs: "vm"
-    // })
+    .state("doctorShow", {
+      url: "/doctors/:id",
+      templateUrl: "js/ng-views/show.html",
+      controller: "DoctorShowController",
+      controllerAs: "vm"
+    })
+    .state("reviewShow", {
+      url: "/doctors/:id",
+      templateUrl: "js/ng-views/show.html",
+      controller: "ReviewShowController",
+      controllerAs: "vm"
+    })
 }
 
 function FactoryFunction( $resource ){

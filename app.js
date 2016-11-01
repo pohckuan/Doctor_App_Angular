@@ -26,7 +26,6 @@ angular
 
 function DoctorIndexControllerFunction(DoctorFactory){
 this.doctors = DoctorFactory.query()
-<<<<<<< HEAD
 this.searchDoctor = ""
 this.searchSpecialty=""
 $('.button').on('click',()=>{

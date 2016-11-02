@@ -9,3 +9,50 @@ h3 {
 body {
     background-color: rgb(28, 28, 239);
 }
+
+img {
+  width: 250px;
+  height: 250px;
+  border: 10px ridge #767696;
+  margin: 25px 0;
+}
+
+hr {
+  color: #767696;
+  border-width: 3px;
+}
+
+#profile {
+text-align: center;
+}
+
+#info {
+display: flex;
+justify-content: center;
+}
+
+section {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+h1#prof {
+  font-size: 50px;
+  margin: 0;
+  margin: 0;
+  -webkit-text-fill-color: #767696; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: #000000;
+}
+
+h2#extrainfo, p#extrainfo {
+  margin: 0;
+  -webkit-text-fill-color: #767696; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: #000000;
+}
+
+#rev {
+  text-align: center;
+}

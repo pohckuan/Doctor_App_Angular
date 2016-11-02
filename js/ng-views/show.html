@@ -1,12 +1,17 @@
+<div id="profile">
 <img data-ng-src="{{vm.doctor.img_url}}">
-<p>NAME: {{vm.doctor.name}}</p>
-<p>SPECIALTY: {{vm.doctor.specialty}}</p>
-<p>PRACTICE: {{vm.doctor.practice}}</p>
-<p>EDUCATION: {{vm.doctor.education}}</p>
+</div>
+<section>
+<h1 id="prof">{{vm.doctor.name}}</h1>
+<h2>Qualifications</h2>
+<h2 id="extrainfo">Specialty: {{vm.doctor.specialty}}</h2>
+<h2 id="extrainfo">Practice: {{vm.doctor.practice}}</h2>
+<h2 id="extrainfo">Education: {{vm.doctor.education}}</h2>
+</section>
 
-<h2>Reviews</h2>
 
 
+<<<<<<< HEAD
 <form>
   <input placeholder="Name" data-ng-model="vm.review.name">
   <input placeholder="Body" data-ng-model="vm.review.body">
@@ -19,3 +24,12 @@
 <div data-ng-repeat="review in vm.reviews">
   {{review.name}}
 </div>
+=======
+<div data-ng-repeat="review in vm.doctor.reviews">
+  {{review.name}}
+</div>
+
+<div data-ng-repeat="review in vm.doctor.reviews">
+  {{review.body}}
+</div>
+>>>>>>> 531302e3e32e1ca633d113cd5b24eb4cfd22816b

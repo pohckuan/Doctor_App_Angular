@@ -7,8 +7,11 @@
 <h2>Reviews</h2>
 
 
-<form data-ng-submit="vm.create()">
-  <input placeholder="Name" data-ng-model="">
-  <input placeholder="Body" data-ng-model="">
-  <button type="submit">Create Review</button>
+<form>
+  <input placeholder="Name" data-ng-model="vm.review.name">
+  <input placeholder="Body" data-ng-model="vm.review.body">
+ <button type="button" data-ng-click="vm.create()">Submit a Review</button>
 </form>
+
+<div data-ng-repeat="review in vm.reviews">
+</div>

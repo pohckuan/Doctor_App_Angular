@@ -13,16 +13,18 @@ angular
 ])
 .controller("DoctorShowController", [
   "DoctorFactory",
+  "ReviewFactory",
   "$stateParams",
   DoctorShowControllerFunction
 ])
-// .controller("ReviewShowController", [
-//   ReviewShowControllerFunction
-// ])
 .factory( "DoctorFactory", [
       "$resource",
     FactoryFunction
-    ]);
+    ])
+.factory( "ReviewFactory", [
+          "$resource",
+        ReviewFactoryFunction
+        ]);
 
 function DoctorIndexControllerFunction(DoctorFactory){
 this.doctors = DoctorFactory.query()
@@ -33,21 +35,17 @@ $('.button').on('click',()=>{
   console.log(this.doctors)
 })
 
-// this.searchDoctor = ""
-// this.searchSpecialty=""
-// $('.button').on('click',()=>{
-//   var keyword = $('#doctor-search').val()
-//   console.log(this.doctors)
-// })
 }
 
-function DoctorShowControllerFunction(DoctorFactory, $stateParams){
+function DoctorShowControllerFunction(DoctorFactory, ReviewFactory, $stateParams){
   this.doctor = DoctorFactory.get({id: $stateParams.id})
+  this.review = new ReviewFactory ();
+  this.create = function () {
+      this.review.$save({doctor_id: this.doctor.id})
+    console.log(this.review)
+      
+  }
 }
-
-// function ReviewShowController(){
-//
-// }
 
 function RouterFunction($stateProvider){
   $stateProvider
@@ -63,6 +61,12 @@ function RouterFunction($stateProvider){
       controller: "DoctorShowController",
       controllerAs: "vm"
     })
+    .state("reviewNew", {
+      url: "/doctors/:id",
+      templateUrl: "js/ng-views/show.html",
+      controller: "ReviewNewController",
+      controllerAs: "vm"
+    })
     .state("reviewShow", {
       url: "/doctors/:id",
       templateUrl: "js/ng-views/show.html",
@@ -76,3 +80,8 @@ function FactoryFunction( $resource ){
         update: { method: "PUT" }
     });
   }
+  function ReviewFactoryFunction( $resource ){
+    return $resource( "http://localhost:3000/doctors/:doctor_id/reviews/:id", {}, {
+          update: { method: "PUT" }
+      });
+    }

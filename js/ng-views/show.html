@@ -12,6 +12,10 @@
   <input placeholder="Body" data-ng-model="vm.review.body">
  <button type="button" data-ng-click="vm.create()">Submit a Review</button>
 </form>
-
+<div class="user-review">
+<p> Name: {{vm.review.name}} </p>
+<p> Review: {{vm.review.body}} </p>
+</div>
 <div data-ng-repeat="review in vm.reviews">
+  {{review.name}}
 </div>

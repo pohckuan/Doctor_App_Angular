@@ -25,6 +25,9 @@ angular
     ]);
 
 function DoctorIndexControllerFunction(DoctorFactory){
+  this.testSelect = function(){
+    console.log(this.currentDoctor)
+  }
 this.doctors = DoctorFactory.query()
 this.searchDoctor = ""
 this.searchSpecialty=""
